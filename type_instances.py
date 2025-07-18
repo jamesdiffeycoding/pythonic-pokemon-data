@@ -237,5 +237,6 @@ all_types = [
     ),
 ]
 
-for type in all_types:
-    print(f"{type} - {type.model_dump()}\n")
+if __name__ == "__main__":
+    for type in all_types:
+        print(f"{type} - {type.model_dump()}\n")

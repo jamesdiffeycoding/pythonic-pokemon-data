@@ -13,8 +13,8 @@ def default_damage_dict():
 
 class TypeModel(BaseModel):
     name: str
-    receives: Dict[DamageCategory, List[str]] = Field(default_factory=default_damage_dict)
     deals: Dict[DamageCategory, List[str]] = Field(default_factory=default_damage_dict)
+    receives: Dict[DamageCategory, List[str]] = Field(default_factory=default_damage_dict)
 
     def __str__(self):
         return f"Type: {self.name}"
