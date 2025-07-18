@@ -1,22 +1,34 @@
 class Type:
     def __init__(self, name):
         self.name = name
-        self.weak_to = []
-        self.strong_against = []
-        self.resist = []
-        self.immune_to = []
+        self.receives_damage = {
+            "super_effective": [],
+            "not_very_effective": [],
+            "immune": []
+        }
+        self.deals_damage = {
+            "super_effective": [],
+            "not_very_effective": [],
+            "immune": []
+        }
 
-    def add_weakness(self, type_name):
-        self.weak_to.append(type_name)
+    def set_defensive_weaknesses(self, type_list):
+        self.receives_damage["super_effective"] = type_list
 
-    def add_strength(self, type_name):
-        self.strong_against.append(type_name)
+    def set_defensive_resistances(self, type_list):
+        self.receives_damage["not_very_effective"] = type_list
 
-    def add_resistance(self, type_name):
-        self.resist.append(type_name)
+    def set_defensive_immunities(self, type_list):
+        self.receives_damage["immune"] = type_list
 
-    def add_immunity(self, type_name):
-        self.immune_to.append(type_name)
+    def set_offensive_strengths(self, type_list):
+        self.deals_damage["super_effective"] = type_list
+
+    def set_offensive_ineffectivenesses(self, type_list):
+        self.deals_damage["not_very_effective"] = type_list
+
+    def set_offensive_immunities(self, type_list):
+        self.deals_damage["immune"] = type_list
 
     def __str__(self):
         return f"Type: {self.name}"
