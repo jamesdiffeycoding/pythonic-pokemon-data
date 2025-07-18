@@ -3,12 +3,12 @@ from type_model import TypeModel
 all_types = [
     TypeModel(
         name="Normal",
-        receives_damage={
+        receives={
             "super_effective": ["Fighting"],
             "not_very_effective": [],
             "immune": ["Ghost"]
         },
-        deals_damage={
+        deals={
             "super_effective": [],
             "not_very_effective": ["Rock", "Steel"],
             "immune": ["Ghost"]
@@ -16,12 +16,12 @@ all_types = [
     ),
     TypeModel(
         name="Fire",
-        receives_damage={
+        receives={
             "super_effective": ["Water", "Ground", "Rock"],
             "not_very_effective": ["Fire", "Grass", "Ice", "Bug", "Steel", "Fairy"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Grass", "Ice", "Bug", "Steel"],
             "not_very_effective": ["Fire", "Water", "Rock", "Dragon"],
             "immune": []
@@ -29,12 +29,12 @@ all_types = [
     ),
     TypeModel(
         name="Water",
-        receives_damage={
+        receives={
             "super_effective": ["Electric", "Grass"],
             "not_very_effective": ["Fire", "Water", "Ice", "Steel"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Fire", "Ground", "Rock"],
             "not_very_effective": ["Water", "Grass", "Dragon"],
             "immune": []
@@ -42,12 +42,12 @@ all_types = [
     ),
     TypeModel(
         name="Electric",
-        receives_damage={
+        receives={
             "super_effective": ["Ground"],
             "not_very_effective": ["Electric", "Flying", "Steel"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Water", "Flying"],
             "not_very_effective": ["Electric", "Grass", "Dragon"],
             "immune": []
@@ -55,12 +55,12 @@ all_types = [
     ),
     TypeModel(
         name="Grass",
-        receives_damage={
+        receives={
             "super_effective": ["Fire", "Ice", "Poison", "Flying", "Bug"],
             "not_very_effective": ["Water", "Electric", "Grass", "Ground"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Water", "Ground", "Rock"],
             "not_very_effective": ["Fire", "Grass", "Poison", "Flying", "Bug", "Dragon", "Steel"],
             "immune": []
@@ -68,12 +68,12 @@ all_types = [
     ),
     TypeModel(
         name="Ice",
-        receives_damage={
+        receives={
             "super_effective": ["Fire", "Fighting", "Rock", "Steel"],
             "not_very_effective": ["Ice"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Grass", "Ground", "Flying", "Dragon"],
             "not_very_effective": ["Fire", "Water", "Ice", "Steel"],
             "immune": []
@@ -81,12 +81,12 @@ all_types = [
     ),
     TypeModel(
         name="Fighting",
-        receives_damage={
+        receives={
             "super_effective": ["Flying", "Psychic", "Fairy"],
             "not_very_effective": ["Bug", "Rock", "Dark"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Normal", "Ice", "Rock", "Dark", "Steel"],
             "not_very_effective": ["Poison", "Flying", "Psychic", "Bug", "Fairy"],
             "immune": []
@@ -94,12 +94,12 @@ all_types = [
     ),
     TypeModel(
         name="Poison",
-        receives_damage={
+        receives={
             "super_effective": ["Ground", "Psychic"],
             "not_very_effective": ["Fighting", "Poison", "Bug", "Grass", "Fairy"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Grass", "Fairy"],
             "not_very_effective": ["Poison", "Ground", "Rock", "Ghost"],
             "immune": []
@@ -107,12 +107,12 @@ all_types = [
     ),
     TypeModel(
         name="Ground",
-        receives_damage={
+        receives={
             "super_effective": ["Water", "Grass", "Ice"],
             "not_very_effective": ["Poison", "Rock"],
             "immune": ["Electric"]
         },
-        deals_damage={
+        deals={
             "super_effective": ["Fire", "Electric", "Poison", "Rock", "Steel"],
             "not_very_effective": ["Grass", "Bug"],
             "immune": []
@@ -120,12 +120,12 @@ all_types = [
     ),
     TypeModel(
         name="Flying",
-        receives_damage={
+        receives={
             "super_effective": ["Electric", "Ice", "Rock"],
             "not_very_effective": ["Grass", "Fighting", "Bug"],
             "immune": ["Ground"]
         },
-        deals_damage={
+        deals={
             "super_effective": ["Grass", "Fighting", "Bug"],
             "not_very_effective": ["Electric", "Rock", "Steel"],
             "immune": []
@@ -133,12 +133,12 @@ all_types = [
     ),
     TypeModel(
         name="Psychic",
-        receives_damage={
+        receives={
             "super_effective": ["Bug", "Ghost", "Dark"],
             "not_very_effective": ["Fighting", "Psychic"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Fighting", "Poison"],
             "not_very_effective": ["Psychic", "Steel"],
             "immune": []
@@ -146,12 +146,12 @@ all_types = [
     ),
     TypeModel(
         name="Bug",
-        receives_damage={
+        receives={
             "super_effective": ["Fire", "Flying", "Rock"],
             "not_very_effective": ["Fighting", "Ground", "Grass"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Grass", "Psychic", "Dark"],
             "not_very_effective": ["Fire", "Fighting", "Poison", "Flying", "Ghost", "Steel", "Fairy"],
             "immune": []
@@ -159,12 +159,12 @@ all_types = [
     ),
     TypeModel(
         name="Rock",
-        receives_damage={
+        receives={
             "super_effective": ["Water", "Grass", "Fighting", "Ground", "Steel"],
             "not_very_effective": ["Normal", "Fire", "Poison", "Flying"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Fire", "Ice", "Flying", "Bug"],
             "not_very_effective": ["Fighting", "Ground", "Steel"],
             "immune": []
@@ -172,12 +172,12 @@ all_types = [
     ),
     TypeModel(
         name="Ghost",
-        receives_damage={
+        receives={
             "super_effective": ["Ghost", "Dark"],
             "not_very_effective": ["Poison", "Bug"],
             "immune": ["Normal", "Fighting"]
         },
-        deals_damage={
+        deals={
             "super_effective": ["Psychic", "Ghost"],
             "not_very_effective": ["Dark"],
             "immune": []
@@ -185,12 +185,12 @@ all_types = [
     ),
     TypeModel(
         name="Dragon",
-        receives_damage={
+        receives={
             "super_effective": ["Ice", "Dragon", "Fairy"],
             "not_very_effective": ["Fire", "Water", "Electric", "Grass"],
             "immune": []
         },
-        deals_damage={
+        deals={
             "super_effective": ["Dragon"],
             "not_very_effective": ["Steel"],
             "immune": []
@@ -198,12 +198,12 @@ all_types = [
     ),
     TypeModel(
         name="Dark",
-        receives_damage={
+        receives={
             "super_effective": ["Fighting", "Bug", "Fairy"],
             "not_very_effective": ["Ghost", "Dark"],
             "immune": ["Psychic"]
         },
-        deals_damage={
+        deals={
             "super_effective": ["Psychic", "Ghost"],
             "not_very_effective": ["Fighting", "Dark", "Fairy"],
             "immune": []
@@ -211,12 +211,12 @@ all_types = [
     ),
     TypeModel(
         name="Steel",
-        receives_damage={
+        receives={
             "super_effective": ["Fire", "Fighting", "Ground"],
             "not_very_effective": ["Normal", "Grass", "Ice", "Flying", "Psychic", "Bug", "Rock", "Dragon", "Steel", "Fairy"],
             "immune": ["Poison"]
         },
-        deals_damage={
+        deals={
             "super_effective": ["Ice", "Rock", "Fairy"],
             "not_very_effective": ["Fire", "Water", "Electric", "Steel"],
             "immune": []
@@ -224,12 +224,12 @@ all_types = [
     ),
     TypeModel(
         name="Fairy",
-        receives_damage={
+        receives={
             "super_effective": ["Poison", "Steel"],
             "not_very_effective": ["Fighting", "Bug", "Dark"],
             "immune": ["Dragon"]
         },
-        deals_damage={
+        deals={
             "super_effective": ["Fighting", "Dragon", "Dark"],
             "not_very_effective": ["Fire", "Poison", "Steel"],
             "immune": []
