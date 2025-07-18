@@ -236,3 +236,6 @@ all_types = [
         }
     ),
 ]
+
+for type in all_types:
+    print(f"{type} - {type.model_dump()}\n")
