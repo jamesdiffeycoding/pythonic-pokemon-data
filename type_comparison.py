@@ -1,3 +1,4 @@
+from helper import log_main_file
 from type_instances import all_types
 from type_model import DamageCategory
 from typing import get_args
@@ -5,8 +6,8 @@ from typing import get_args
 print("--")
 
 
-
 if __name__ == "__main__":
+    log_main_file()
     for type in all_types:
         for category in get_args(DamageCategory):
             print(f"\n{type} - {category}")

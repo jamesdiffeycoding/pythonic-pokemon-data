@@ -1,3 +1,4 @@
+from helper import log_main_file
 from pydantic import BaseModel, Field
 from typing import List, Dict, Literal
 
@@ -18,3 +19,7 @@ class TypeModel(BaseModel):
 
     def __str__(self):
         return f"Type: {self.name}"
+
+
+if __name__ == "__main__":
+    log_main_file()

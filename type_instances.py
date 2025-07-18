@@ -1,3 +1,4 @@
+from helper import log_file_running
 from type_model import TypeModel
 
 all_types = [
@@ -238,5 +239,6 @@ all_types = [
 ]
 
 if __name__ == "__main__":
+    log_file_running()
     for type in all_types:
         print(f"{type} - {type.model_dump()}\n")
