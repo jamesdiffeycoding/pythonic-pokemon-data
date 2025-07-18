@@ -3,10 +3,18 @@ from typing import List, Dict, Literal
 
 DamageCategory = Literal["super_effective", "not_very_effective", "immune"]
 
+def default_damage_dict():
+    return {
+        "super_effective": [],
+        "not_very_effective": [],
+        "immune": []
+    }
+
 class Type(BaseModel):
     name: str
-    receives_damage: Dict[DamageCategory, List[str]] = Field(default_factory=dict)
-    deals_damage: Dict[DamageCategory, List[str]] = Field(default_factory=dict)
+    receives_damage: Dict[DamageCategory, List[str]] = Field(default_factory=default_damage_dict)
+    deals_damage: Dict[DamageCategory, List[str]] = Field(default_factory=default_damage_dict)
+
 
     def set_defensive_weaknesses(self, type_list: List[str]):
         self.receives_damage["super_effective"] = type_list
