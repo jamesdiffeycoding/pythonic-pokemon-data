@@ -1,29 +1,33 @@
 from helper import log_main_file
 from type_instances import all_types
 from type_model import DamageCategory
-from typing import get_args
+from typing import get_args, Literal
 
-ranked_types_detailed = [{
-        "name": t.name,
-        "deals_super_effective": len(t.deals["super_effective"]),
-        "deals_not_very_effective": len(t.deals["not_very_effective"]),
-        "deals_immune": len(t.deals["immune"]),
-        "receives_super_effective": len(t.receives["super_effective"]),
-        "receives_not_very_effective": len(t.receives["not_very_effective"]),
-        "receives_immune": len(t.receives["immune"]),
+all_types_counts = [{
+        "name": t.name[:5],
+        "deals": {
+            "super_effective": len(t.deals["super_effective"]),
+            "not_very_effective": len(t.deals["not_very_effective"]),  # fixed
+            "immune": len(t.deals["immune"]),
+        },
+        "receives": {
+            "super_effective": len(t.receives["super_effective"]),
+            "not_very_effective": len(t.receives["not_very_effective"]),  # fixed
+            "immune": len(t.receives["immune"]),
+        }
     } for t in all_types]
 
-sorting_category = "deals_super_effective"
-
-ranked_types_detailed_sorted = sorted(
-    ranked_types_detailed,
-    key=lambda x: x[sorting_category],
-    reverse=True
-)
+def sorted_all_types_counts(direction: Literal["deals", "receives"], sorting_category: str):
+    sorted_data = sorted(
+        all_types_counts,
+        key=lambda x: x[direction][sorting_category],
+        reverse=True
+    )
+    return [(t["name"], t[direction][sorting_category]) for t in sorted_data]
 
 if __name__ == "__main__":
     log_main_file()
-    print(f"data sorted by - {sorting_category}")
-    for t in ranked_types_detailed_sorted:
-        print(f"{t['name']} {t[sorting_category]}")
+    for direction in ["deals", "receives"]:
 
+        for category in get_args(DamageCategory):
+            print(f'{category} - {sorted_all_types_counts(direction, category)}')
