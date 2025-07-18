@@ -15,24 +15,11 @@ class Type(BaseModel):
     receives_damage: Dict[DamageCategory, List[str]] = Field(default_factory=default_damage_dict)
     deals_damage: Dict[DamageCategory, List[str]] = Field(default_factory=default_damage_dict)
 
+    def set_defensive(self, damage_category: DamageCategory, type_list: List[str]):
+        self.receives_damage[damage_category] = type_list
 
-    def set_defensive_weaknesses(self, type_list: List[str]):
-        self.receives_damage["super_effective"] = type_list
-
-    def set_defensive_resistances(self, type_list: List[str]):
-        self.receives_damage["not_very_effective"] = type_list
-
-    def set_defensive_immunities(self, type_list: List[str]):
-        self.receives_damage["immune"] = type_list
-
-    def set_offensive_strengths(self, type_list: List[str]):
-        self.deals_damage["super_effective"] = type_list
-
-    def set_offensive_ineffectivenesses(self, type_list: List[str]):
-        self.deals_damage["not_very_effective"] = type_list
-
-    def set_offensive_immunities(self, type_list: List[str]):
-        self.deals_damage["immune"] = type_list
+    def set_offensive(self, damage_category: DamageCategory, type_list: List[str]):
+        self.deals_damage[damage_category] = type_list
 
     def __str__(self):
         return f"Type: {self.name}"
