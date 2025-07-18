@@ -7,12 +7,12 @@ all_types_counts = [{
         "name": t.name[:5],
         "deals": {
             "super_effective": len(t.deals["super_effective"]),
-            "not_very_effective": len(t.deals["not_very_effective"]),  # fixed
+            "not_very_effective": len(t.deals["not_very_effective"]),
             "immune": len(t.deals["immune"]),
         },
         "receives": {
             "super_effective": len(t.receives["super_effective"]),
-            "not_very_effective": len(t.receives["not_very_effective"]),  # fixed
+            "not_very_effective": len(t.receives["not_very_effective"]),
             "immune": len(t.receives["immune"]),
         }
     } for t in all_types]
